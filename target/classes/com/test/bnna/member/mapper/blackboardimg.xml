@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="blackboardimg">
+	
+	<insert id="add" parameterType="blackboardimgdto">
+		insert into tblBlackBoardImg(seq, seqBlackBoard, image, orgimage) values(seqBlackBoardImg.nextVal, #{seqBlackBoard}, #{image}, #{orgimage})
+	</insert>
+	
+	<delete id="del" parameterType="String">
+		delete from tblBlackBoardImg where seqBlackBoard = #{seq}
+	</delete>
+	
+	<select id="hasImage" parameterType="String" resultType="Integer">
+		select count(*) from tblBlackBoardImg where seqBlackBoard = #{seq}
+	</select>
+
+</mapper>

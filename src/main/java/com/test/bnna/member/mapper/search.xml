@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="search">
+
+	<!-- 숙소 1개의 정보를 가져오는 쿼리 -->
+	<select id="info" parameterType="String" resultType="com.test.bnna.member.bnbsearch.BnBDTO">
+		select
+		    bnb.seq as seq,
+		    m.name as hostName,
+		    m.pic as hostImage,
+		    bt.bnbtype as bnbType,
+		    bnb.name as bnbName,
+		    bnb.intro as bnbIntro,
+		    bnb.cap as cap,
+		    bnb.price as price,
+		    bnb.bedroom as bedroom,
+		    bnb.bathroom as bathroom,
+		    bnb.tel as tel,
+		    o.amenity as amenity,
+		    o.kitchen as kitchen,
+		    o.heating as heating,
+		    o.washing as washing,
+		    o.wifi as wifi,
+		    o.workroom as workroom,
+		    o.babybed as babybed,
+		    o.dryer as dryer,
+		    o.breakfast as breakfast,
+		    o.tv as tv,
+		    o.ac as ac,
+		    o.hairdryer as hairdryer,
+		    o.parking as parking,
+		    o.disabled as disabled,
+		    o.bed as bed,
+		    r.pet as pet,
+		    r.smoke as smoke,
+		    r.evt as evt,
+		    r.selfcheck as selfcheck,
+		    r.checkin as checkin,
+		    r.checkout as checkout,
+		    ba.loadname as loadname,
+		    ba.detail as detail,
+		    ba.zipcode as zipcode,
+		    ba.mapx as mapx,
+		    ba.mapy as mapy,
+		    h.intro as hostIntro,
+		    h.regdate as hostRegdate,
+		    (select avg(star) from tblBook bk
+    			inner join tblReview r on bk.seq=r.seqbook
+            	where bk.seqbnb=#{seq} group by bk.seqbnb) as star
+			from tblBnB bnb
+			    inner join tblBnBType bt
+			        on bt.seq=bnb.seqbnbtype
+			            inner join tblOption o
+			                on bnb.seq=o.seqbnb
+			                    inner join tblRule r
+			                        on bnb.seq=r.seqbnb
+			                            inner join tblBnBAddress ba
+			                                on bnb.seq=ba.seqbnb
+			                                    inner join tblHost h
+			                                        on h.seq=bnb.seqhost
+			                                            inner join tblMember m
+			                                                on h.seqmember=m.seq
+			                                                    inner join tblDibs d
+			                                                        on bnb.seq=d.seqbnb
+			                                                            where bnb.seq=#{seq}
+	</select>
+
+	<!-- 검색결과를 가져오는 쿼리 -->
+	<select id="list" parameterType="com.test.bnna.member.bnbsearch.SearchConditionDTO" resultType="com.test.bnna.member.bnbsearch.BnBSearchResultDTO">
+		select pbnb.seq as seq,
+            pbnb.name as bnbName,
+            pbnb.intro as intro,
+            pbnb.cap as cap,
+            pbnb.price as price,
+            m.name as hostName,
+            (select round(avg(star), 1) from tblBook b
+                inner join tblReview r
+                    on b.seq=r.seqbook where b.seqbnb=pbnb.seq group by b.seqbnb) as star,
+            pbnb.bedroom as bedroom,
+            o.bed as bed,
+            pbnb.bathroom as bathroom,
+            o.amenity as amenity,
+            o.dryer as dryer,
+            o.kitchen as kitchen,
+            o.heating as heating,
+            o.washing as washing,
+            o.wifi as wifi,
+            o.workroom as workroom,
+            o.babybed as babybed,
+            o.breakfast as breakfast,
+            o.tv as tv,
+            o.ac as ac,
+            o.hairdryer as hairdryer,
+            o.parking as parking,
+            o.disabled as disabled,
+            ru.pet as pet,
+            ru.smoke as smoke,
+            ru.evt as evt,
+            ru.selfcheck as selfcheck,
+            ba.mapx,
+            ba.mapy
+            from (select seq,
+	            tblbnb.name,
+                tblbnb.intro,
+                tblbnb.cap,
+                tblbnb.price,
+                tblbnb.seqhost,
+                tblbnb.bedroom,
+                tblbnb.bathroom
+                from tblBnB where seq not in (select count(*) from tblBnB bnb
+                    inner join tblBook b
+                        on bnb.seq=b.seqbnb
+                            <![CDATA[where to_char(b.checkin, 'yyyy-mm-dd') <= #{checkIn}]]>
+                                <![CDATA[and to_char(b.checkout, 'yyyy-mm-dd') >= #{checkOut}]]>
+                                    group by bnb.seq)) pbnb
+                                        inner join tblHost h
+                                            on pbnb.seqhost=h.seq
+                                                inner join tblMember m
+                                                    on h.seqmember=m.seq
+                                                        inner join tblOption o
+                                                            on pbnb.seq=o.seqbnb
+                                                                inner join tblRule ru
+                                                                    on pbnb.seq=ru.seqbnb
+                                                                        inner join tblbnbAddress ba
+                                                                            on ba.seqbnb=pbnb.seq
+                                                                              		where pbnb.cap>=#{guest} and (ba.loadname like ('%'||#{location}||'%'))
+	</select>
+	
+	<!-- 위에서 찾은 검색결과에 따라 숙소사진을 가져오는 쿼리 -->
+	<select id="plist" parameterType="Integer" resultType="com.test.bnna.member.bnbsearch.BnBPicDTO">
+		select seqbnb, image from tblBnBPic where seqbnb=#{seq}
+	</select>
+	
+	<!-- 관심숙소를 찾는 쿼리 -->
+	<select id="dibsList" parameterType="String" resultType="com.test.bnna.member.bnbsearch.DibsDTO">
+		select * from tblDibs where seq=#{seqMember}
+	</select>
+	
+</mapper>

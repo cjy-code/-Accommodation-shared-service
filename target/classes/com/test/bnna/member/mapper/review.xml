@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review">
+
+	<!-- 한 회원이 작성한 리뷰목록을 가져오는 쿼리 -->
+	<select id="listForMember" parameterType="String" resultType="com.test.bnna.member.board.review.ReviewForMemberDTO">
+		select seq,
+			seqbook,
+			title,
+			content,
+			star,
+			readcnt,
+			recommendcnt,
+			thread,
+			depth,
+			bookdate
+		from (select a.*, rownum as rnum from (select r.seq as seq,
+			r.seqbook as seqbook,
+			r.title as title,
+			r.content as content,
+			r.star as star,
+			r.readcnt,
+			r.recommendcnt,
+			r.thread,
+			r.depth,
+			b.bookdate as bookdate
+		from tblReview r
+		    inner join tblBook b
+		        on r.seqbook=b.seq
+		        	where b.seqmember=#{seq}
+		        		order by r.seq desc) a) where rnum between #{begin} and #{end}
+	</select>
+	
+	<!-- 회원번호로 그 회원이 작성한 리뷰 개수를 가져오는 쿼리 -->
+	<select id="getTotalCountForMember" parameterType="String" resultType="Integer">
+		select count(*) from tblReview r
+	        inner join tblBook b
+	            on r.seqbook=b.seq
+	                where seqmember=#{seqMember}
+	</select>
+	
+	<!-- 특정 숙소의 리뷰를 가져오는 쿼리 -->
+	<select id="onelist" parameterType="hashMap" resultType="com.test.bnna.member.board.review.ReviewDTO">
+		select seq,
+				title,
+				content,
+				star,
+				id,
+				bookdate,
+				readcnt,
+				recommendcnt,
+				thread,
+				depth
+		from (select a.*, rownum as rnum
+		from (select
+		    r.seq as seq,
+		    r.title as title,
+		    r.content as content,
+		    r.star as star,
+		    m.id as id,
+		    b.bookdate,
+		    r.readcnt,
+		    r.recommendcnt,
+		    r.thread,
+		    r.depth
+		from tblReview r
+		    inner join tblBook b
+		        on b.seq=r.seqbook
+		            inner join tblMember m
+		                on m.seq=b.seqmember
+		                    where seqbnb=#{seq} and r.secret=0
+		                        order by r.seq desc) a) where rnum between #{begin} and #{end}
+	</select>
+	
+	<!-- 특정 숙소의 리뷰의 이미지들을 가져오는 쿼리 -->
+	<select id="listByBnB" parameterType="String" resultType="com.test.bnna.member.board.review.ReviewPicDTO">
+		select
+		    rp.seq as seq,
+		    rp.seqreview as seqreview,
+		    rp.image as image,
+		    rp.orgimage as orgimage
+		from tblReviewPic rp
+		    inner join tblReview r
+		        on r.seq=rp.seqreview
+		            inner join tblBook b
+		                on b.seq=r.seqbook
+		                    where b.seqbnb=#{seq}
+	</select>
+	
+	<!-- 리뷰 한 개의 정보를 가져오는 쿼리 -->
+	<select id="info" parameterType="String" resultType="com.test.bnna.member.board.review.ReviewForMemberDTO">
+		select r.seq as seq,
+			r.seqbook as seqbook,
+			r.title as title,
+			r.content as content,
+			r.star as star,
+			r.readcnt,
+			r.recommendcnt,
+			r.thread,
+			r.depth,
+			b.bookdate as bookdate
+		from tblReview r
+		    inner join tblBook b
+		        on r.seqbook=b.seq
+		        	where r.seq=#{seq}
+	</select>
+	
+	<!-- 리뷰번호에 따른 리뷰이미지를 가져오는 쿼리 -->
+	<select id="plist" parameterType="String" resultType="com.test.bnna.member.board.review.ReviewPicDTO">
+		select seq,
+			seqreview,
+			image,
+			orgimage
+		from tblReviewPic where seqreview=#{seq}
+	</select>
+	
+	<!-- 리뷰를 추가하는 쿼리 -->
+	<insert id="add" parameterType="com.test.bnna.member.board.review.AddReviewDTO">
+		insert into tblReview values(seqReview.nextVal, #{seqbook}, #{title}, #{content}, #{star}, 0, 0, 0, 0, 0)
+	</insert>
+	
+	<!-- 리뷰이미지를 추가하는 쿼리 -->
+	<insert id="addReviewPic" parameterType="com.test.bnna.member.board.review.ReviewPicDTO">
+		insert into tblReviewPic values(seqReviewPic.nextVal, #{seqreview}, #{image}, #{orgimage})
+	</insert>
+	
+	<!-- 방금 작성한 리뷰번호를 가져오는 쿼리 -->
+	<select id="getCurrentReviewSeq" resultType="Integer">
+		select max(seq) from tblReview
+	</select>
+	
+	<!-- 특정 리뷰의 이미지들을 삭제하는 쿼리 -->
+	<delete id="delPic" parameterType="String">
+		delete from tblReviewPic where seqreview=#{seq}
+	</delete>
+	
+	<!-- 삭제할 이미지파일 이름을 가져오는 쿼리 -->
+	<select id="getDeleteFileName" parameterType="String" resultType="String">
+		select image from tblReviewPic where seq=#{seq}
+	</select>
+	
+	<!-- 이미지 하나만 삭제하는 쿼리 -->
+	<delete id="delSpecificPic" parameterType="String">
+		delete from tblReviewPic where seq=#{seq}
+	</delete>
+	
+	<!-- 특정 리뷰를 삭제하는 쿼리 -->
+	<delete id="del" parameterType="String">
+		delete from tblReview where seq=#{seq}
+	</delete>
+	
+	<!-- 특정 리뷰를 수정하는 쿼리 -->
+	<update id="edit" parameterType="com.test.bnna.member.board.review.EditReviewDTO">
+		update tblReview set title=#{title}, star=#{star}, content=#{content} where seq=#{seq}
+	</update>
+	
+	<!-- 아직 리뷰가 작성되지 않은 예약번호를 가져오는 쿼리 -->
+	<select id="blist" parameterType="String" resultType="com.test.bnna.member.board.review.BookForMemberDTO">
+		select seq from tblBook where seqmember=#{seq}
+		minus
+		select seqbook from tblReview
+	</select>
+	
+	<!-- 조회수를 올리는 쿼리 -->
+	<update id="readcntup" parameterType="String">
+		update tblReview set readcnt=readcnt+1 where seq=#{seq}
+	</update>
+	
+	<!-- 추천수를 올리는 쿼리 -->
+	<update id="recommendcntup" parameterType="String">
+		update tblReview set recommendcnt=recommendcnt+1 where seq=#{seq}
+	</update>
+	
+	<!-- 리뷰번호로 작성자 ID를 가져오는 쿼리 -->
+	<select id="getOwner" parameterType="String" resultType="String">
+		select m.id as id
+		from tblReview r
+             inner join tblBook b
+                 on r.seqbook=b.seq
+                     inner join tblMember m
+                         on m.seq=b.seqmember
+                             where r.seq=#{seq}
+	</select>
+	
+	<!-- 특정 숙소의 리뷰 개수를 반환하는 쿼리(pagination) -->
+	<select id="getTotalCount" parameterType="String" resultType="Integer">
+		select count(*) from tblReview r
+             inner join tblBook b
+                 on r.seqbook=b.seq where b.seqbnb=#{seq}
+	</select>
+	
+</mapper>

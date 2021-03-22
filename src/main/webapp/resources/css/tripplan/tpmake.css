@@ -1,0 +1,506 @@
+/* 
+
+    여행 일정 만들기 페이지 CSS
+
+    0. main frame
+
+    1. day area CSS
+    2. plan area CSS
+    3. search area CSS
+    4. map area CSS
+
+
+*/
+
+
+/* ----------- 0. main frame ---------- */
+.mainsection {
+    width: 100%;
+}
+
+.mainsection #dayarea, .mainsection #planarea, .mainsection #map, .mainsection #searcharea {
+    min-height: 880px;
+    float: left;
+    margin-top: 70px;
+}
+
+.mainsection #dayarea {
+    width: 110px;
+    position: relative;
+    z-index: 10;
+    background-color: white;
+}
+
+.mainsection #planarea {
+    width: 210px;
+    position: relative;
+    z-index: 10;
+    background-color: white;
+}
+
+
+.mainsection #searcharea {
+    width: 270px;
+    background-color: rgb(255, 239, 236);
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    z-index: 10;
+}
+
+.mainsection #map {
+    width: 100%;
+    height: 100%;
+}
+
+.mainsection #maparea {
+    position: relative;
+    left: 0px;
+    top: -945px;
+    overflow: hidden;
+    float: left;
+    min-width: 500px;
+    width: 100%;
+}
+
+
+/* .mainsection #maparea::after {
+    content: ""; 
+    clear: both; 
+    display: block; 
+} */
+
+
+
+
+/* ----------- 1. day area CSS ---------- */
+/* 일정 간단 정보 */
+#dayarea {
+    padding-right: 5px;
+}
+
+#dayarea #dayInfo {
+    text-align: center;
+    font-weight: bold;
+}
+
+#dayarea #dayInfo p:nth-child(1) {
+    padding-top: 15px;
+}
+
+
+#dayarea #dayInfo p:nth-child(2) {
+    margin-top: -5px;
+    font-size: 1.2em;
+}
+
+#dayarea #dayInfo p:nth-child(2) span {
+    color: #f05e61ff;
+}
+
+#dayarea #dayInfo .day-period {
+    margin-top: -5px;
+    background-color: rgb(255, 212, 204);
+}
+
+
+/* day 리스트 */
+#dayarea #dayList {
+    margin-top: 10px;
+    background-color: rgb(241, 241, 241);
+    padding: 2px 0px 10px 0px;
+}
+
+
+#dayarea #dayList .dayitem {
+    border: 1px solid #DDD;
+    text-align: center;
+    margin: 5px 0px;
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 18%);
+    background-color: white;
+    padding-bottom: 5px;
+    border-radius: 7px;
+}
+
+#dayarea #dayList .dayitem .num {
+    color: #f18579ff;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+#dayarea #dayList .dayitem .day-date, #dayarea #dayList .dayitem .day-day {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+
+.selectAble {
+	cursor: pointer;
+}
+
+#dayarea #dayList .selected {
+	background-color: rgb(248, 109, 112);
+	box-shadow:inset 3px 3px 8px 2px rgb(161, 70, 70); 
+	color: white;
+}
+
+#dayarea #dayContent #dayList .selected .day-date,
+#dayarea #dayContent #dayList .selected .day-day,
+#dayarea #dayContent #dayList .selected .day-num {
+	color: #333;
+}
+
+#dayarea #dayContent #dayList .selected .num {
+	color: white;
+}
+
+
+
+#dayarea .savePlan {
+    background-color: #f18579ff;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 18%);
+    border-radius: 10px;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+#dayarea .savePlan:hover {
+    background-color: rgb(238, 84, 87);
+    cursor: pointer;
+} 
+
+
+
+
+/* ----------- 2. plan area CSS ---------- */
+#planarea {
+    padding-right: 5px;
+}
+
+/* plan head */
+#planarea #planHead {
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    background-color:  rgb(255, 243, 241);
+}
+
+
+#planarea #planHead span:nth-child(1) {
+    font-size: 1.1em;
+}
+
+#planarea #planHead span:nth-child(1) span {
+    color: #f18579ff;
+    font-size: 1.5em;
+}
+
+#planarea #planHead div:nth-child(2) {
+    font-size: 1.4em;
+}
+
+
+/* plan body */
+.plan-placeholder {
+	background-color: #EEE;	
+	height: 95px;
+	border-radius: 6px;
+}
+
+#planarea #planBody{
+    margin-top: 5px;
+}
+
+#planDetail .scheduleItem img {
+    width: 100px;
+    overflow: hidden;
+    height: 100px;
+}
+
+
+/* result item */
+#planDetail .resultItem {
+    height: 95px;
+    box-shadow: 0 3px 5px 0px rgb(0 0 0 / 18%);
+    background-color: white;
+    border: 1px solid rgb(172, 172, 172);
+    margin-bottom: 5px;
+    border-radius: 6px;
+}
+
+#planDetail .resultItem:hover {
+    cursor: pointer;
+    background-color: #F3F3F3;
+}
+
+#planDetail .resultItem .img_box {
+    width: 60px;
+    height: 60px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border: 1px solid #DDD;
+}
+
+
+#planDetail .resultItem .img_box img {
+    width: 100%;
+    height: 100%;
+}
+
+#planDetail .resultItem .item_number {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    left: -17px;
+    top: -76px;
+    background: rgb(248, 147, 116);
+    border-top-left-radius: 6px;
+    line-height: 19px;
+    text-align: center;
+    color: white;
+    font-size: 11px;
+}
+
+#planDetail .resultItem .content_box {
+    width: 100px;
+    margin-top: -63px;
+    margin-left: 80px;
+}
+
+#planDetail .resultItem .content_box .content_name{
+    margin-top: 10px;
+    font-size: 12px;
+    width: 200px;
+}
+
+#planDetail .resultItem .content_box .content_type{
+    margin-top: 5px;
+    font-size: 8px;
+    color: #999;
+}
+
+#planDetail .resultItem .btn_del {
+    position: relative;
+    left: 180px;
+    top: -73px;
+    z-index: 1;
+    background-color: transparent;
+    line-height: 19px;
+    padding: 0px 3px;
+    border-radius: 0%;
+}
+
+#planDetail .resultItem .btn_del:focus {
+    outline: none;
+}
+
+#planDetail .resultItem .btn_del span {
+    font-size: 12px;
+    color: #666;
+}
+
+/* #planDetail .resultItem .btn_box {
+    width: 30px;
+    margin-top: 15px;
+}
+
+#planDetail .resultItem .btn_box input {
+    margin-top : 8px;
+    font-size: 0.9em;
+} */
+
+
+/* ----------- 3. search area CSS ---------- */
+#searcharea #searchBody {
+    padding-top: 5px;
+}
+
+#searcharea #searchBody #searchKeyword input {
+    height: 40px;
+    width: 220px;
+}
+
+#searcharea #searchBody #searchKeyword button {
+    height: 40px;
+    margin-left: -5px;
+    margin-top: -3px;
+    width: 50px;
+    background-color: rgb(110, 110, 110);
+}
+
+#searchKeyword button span {
+    color: white;
+    text-align: center;
+}
+
+/* 테마선택 */
+#searcharea #searchBody {
+    box-shadow: 0 3px 5px 0px rgb(0 0 0 / 18%);
+    padding-bottom: 10px;
+}
+
+#searcharea #searchTheme {
+    padding: 10px
+}
+
+#searcharea #searchTheme .theme_area {
+    text-align: center;
+}
+
+#searcharea #searchTheme .titleTheme {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+#searcharea #searchTheme .theme_area button {
+    background-color: #EEE;
+    padding: 6px 7px;
+    font-weight: bold;
+}
+
+#searcharea #searchTheme .theme_area button:focus {
+    background-color: #444;
+    color: white;
+    outline: none;
+}
+
+
+
+/* 검색결과 */
+#searcharea #searchResult {
+    padding: 10px 5px;
+    margin-top: 10px;
+    border-top: 1px solid #EEE;
+    border-bottom : 1px solid #EEE;
+}
+
+#searcharea .resultInfo {
+    margin: 20px 0px 0px 10px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+#searcharea .resultInfo div span {
+    color: rgb(231, 89, 64);
+}
+
+#searcharea .resultInfo div:nth-child(2) {
+    position: absolute;
+    right: 10px;
+}
+
+
+
+/* durup */
+#searchResult {
+    height: 620px;
+    overflow-y: scroll;
+    z-index: 3;
+}
+
+#searchResult .resultItem {
+    height: 95px;
+    box-shadow: 0 3px 5px 0px rgb(0 0 0 / 18%);
+}
+
+#searchResult .resultItem:hover {
+    background-color: rgb(255, 244, 244);
+    cursor: pointer;
+}
+
+#searchResult .resultItem::after {
+    content: '';
+    clear: both;
+    display: block; 
+}
+
+#searchResult .resultItem div {
+    float: left;
+    margin-left: 10px;
+    
+}
+
+#searchResult .resultItem .img_box {
+    width: 60px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+#searchResult .resultItem .img_box img {
+    width: 60px;
+    height: 60px;
+}
+
+#searchResult .resultItem .content_box {
+    width: 110px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+#searchResult .resultItem .content_box .content_name{
+    margin-top: 9px;
+    font-size: 12px;
+}
+
+#searchResult .resultItem .content_box .content_type{
+    margin-top: 5px;
+    font-size: 8px;
+    color: #999;
+}
+
+#searchResult .resultItem .btn_box {
+    width: 50px;
+    margin-top: -65px;
+    margin-left: 183px;
+}
+
+#searchResult .resultItem .btn_box input {
+    margin-top : 8px;
+    font-size: 0.6em;
+    padding: 5px;
+    padding-right: 7px;
+    outline: none;
+}
+
+#paging {
+	text-align: center;
+}
+
+
+
+/* 세부정보 modal */
+.modal-body {
+    text-align: center;
+}
+
+.modal-body .image {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.modal-body .image img {
+    width: 500px;
+}
+
+.modal-body .content {
+    text-align: left;
+}
+
+.modal-body .content div {
+    font-weight: bold;
+}
+
+.modal-body .content div span {
+    font-weight: normal;
+}
+

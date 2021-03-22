@@ -1,0 +1,186 @@
+/* 회원 > 블랙리스트 신고게시판 CSS */
+
+/* common */
+aside {
+	width: 17%;
+}
+
+.contentsection {
+	width: 74%;
+}
+
+.board-title {
+	font-variant: small-caps;
+}
+
+.btns {
+	text-align: right;
+}
+
+.btns button {
+	width: 120px;
+	height: 50px;
+	margin-left: 20px;
+}
+
+
+/* add, view, edit */
+#tblAdd th, #tblView th, #tblEdit th {
+	width: 150px;
+}
+
+#tblAdd td, #tblView td, #tblEdit td {
+	width: auto;
+}
+
+/* add, edit > content */
+#tblAdd #content, #tblEdit #content {
+	height: 200px;
+}
+
+/* add, edit > image attach button */
+#tblAdd #image, #tblEdit #image {
+	display: none;
+}
+
+/* view */
+
+/* view > images(div) */
+#tblView .images {
+	margin-bottom: 20px;
+}
+
+/* view > insertimg */
+#tblView .insertimg {
+	max-width: 550px;
+	display: block;
+	margin: 5px auto;
+}
+
+/* view > comment */
+
+.comment-title {
+	font-variant: small-caps;
+}
+
+/* view > comment table */
+
+#tblComment {
+	margin-top: 20px;
+}
+
+#tblComment th:nth-child(1) {
+	width: 180px;
+}
+
+#tblComment th:nth-child(2) {
+	width: auto;
+}
+
+#tblComment th:nth-child(3) {
+	width: 200px;
+}
+
+#tblComment th, #tblComment td {
+	padding-left: 10px;
+}
+
+#tblComment tbody .cmtContent {
+	margin-right: 10px;
+}
+
+/* view > write comment */
+h4.comment-title {
+	margin-top: 30px;
+}
+
+.write-comment textarea {
+	width: 85%;
+	height: 100px;
+	float: left;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.write-comment button {
+	width: 10%;
+	float: left;
+	margin-top: 2.5%;
+}
+
+.write-comment::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* view > delModalBtns */
+
+/* delModalBtns */
+#delModal .delModalBtns,
+#cmtDelModal .delModalBtns {
+	margin-top: 20px;
+	text-align: center;
+}
+
+/* list */
+
+/* 검색 결과 텍스트 */
+.searchResult h6 {
+	float: left;
+}
+
+/* 초기화 버튼 */
+.searchResult button {
+	float: left;
+	margin-left: 20px;
+}
+
+.searchResult::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* 목록 테이블 */
+#tblList th:nth-child(1) { width: auto; }
+#tblList th:nth-child(2) { width: 180px; }
+#tblList th:nth-child(3) { width: 120px; }
+#tblList th:nth-child(4) { width: 70px; }
+
+#tblList th:nth-child(1),
+#tblList th:nth-child(2), #tblList td:nth-child(2),
+#tblList th:nth-child(3), #tblList td:nth-child(3),
+#tblList th:nth-child(4), #tblList td:nth-child(4) {
+	text-align: center;
+}
+
+/* 제목 옆 이미지 아이콘 */
+#tblList .imgicon {
+	color: #F4A259;
+	margin-left: 5px;
+}
+
+/* 검색바 */
+#searchbar {
+	text-align: center;
+	line-height: 50px;
+}
+
+#searchbar::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#btnAdd {
+	float: right;
+	width: 120px;
+	height: 50px;
+}
+
+.pagebox {
+	text-align: center;
+	margin-top: 20px;
+}
+

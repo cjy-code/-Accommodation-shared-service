@@ -1,0 +1,140 @@
+/* 
+
+    header, sidemenu 관련 추가
+    (21.03.10)
+    
+    1. header
+    2. sidemenu
+
+
+*/
+
+/* 1. header */
+
+header {
+    padding:5px 0px 10px 0px;
+    text-align: center;
+}
+
+#headerlink {
+    text-align:right;
+    margin:20px;
+}
+
+.headerlink-item {
+    border-right: 1px solid #999;
+    padding: 0px 10px 0px 6px;
+}
+
+.container header .last {
+    border: none;
+}
+
+/* searcharea - 상단 숙소 검색바 */
+.header-search {
+    border: 2px solid #eee;
+    border-radius: 35px;
+    width: 900px;
+    height: 70px;
+    padding-top: 5px;
+    margin-left: 120px;
+    padding-left: 13px;
+    background-color: white;
+}
+
+.btn-search {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f05e61ff;
+}
+
+.btn-search span {
+    color: white;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.header-search input {
+    border: none;
+    border-right: 2px solid #eee;
+    width: 200px;
+    height: 50px;
+    padding: 0px 15px;
+}
+
+/* js 관련하여 기본값 재설정 */
+header {
+    background-color: rgb(255, 235, 226); 
+    -webkit-transition-duration:0.4s;
+    -webkit-transition-timing-function:ease;
+    transition-duration:0.4s;
+    transition-timing-function:ease;
+    position:fixed;
+    width: 1150px;
+    z-index: 100;
+}
+/* scroll시 header 색상/크기/그림자 변경 */
+.down {
+    height: 180px;
+    background-color:rgb(255, 255, 255);
+    -webkit-transition-duration:0.4s;
+    -webkit-transition-timing-function:ease;
+    transition-duration:0.4s;
+    transition-timing-function:ease;
+    box-shadow: 0px 20px 25px -20px #AAA;
+}
+
+/* + 헤더 아래 메뉴 경로 보여주는 바  */
+.contentsection #menupath {
+    border-left: 3px solid #e79f75;
+    padding-left: 10px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.contentsection #menupath span {
+    color: #e79f75;
+}
+
+
+
+/* 2. sidemenu */
+
+#introtitle {
+    width:100%;
+    padding:15px;
+    text-align:center;
+    clear:both;
+    background-color: #888;
+    border-top-left-radius: 15px;
+}
+
+#sidemenu {
+    background-color: white;
+    border:1px solid #ccc;
+    width:100%;
+    padding:15px 0px;
+    clear:both;
+    border-bottom-left-radius: 15px;
+}
+
+.menuitem {
+    margin-top:30px;
+}
+
+.menusubitem {
+    margin-left:-25px;
+    margin-top:15px;
+}
+
+#sidemenu li {
+    margin: 0px 0px 0px -40px;
+    padding: 10px 40px;
+}
+
+#sidemenu li:hover, #sidemenu li:focus {
+    background-color: #f8f8f8;
+    box-shadow: 0px 10px 15px -10px rgb(134, 134, 134);
+}

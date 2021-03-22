@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qna">
+
+	<!-- <insert id="add" parameterType="dto">
+		insert into tblSpringBoard(seq, id, subject, content, regdate) values (seqSpringBoard.nextVal, #{id}, #{subject}, #{content}, default)
+	</insert>
+	
+	<select id="list" resultType="dto">
+		select * from tblSpringBoard order by seq desc
+	</select> -->
+	<!-- 페이징용 게시물 count  -->
+	<!-- <select id="countBoard" resultType="com.test.bnna.member.board.qna.QnaDTO">
+	
+	select count(*) from (select rownum num, z.* from (select * from tblquestion a
+                inner join tblqcategory b
+                    on a.seqQCategory=b.seq
+                        inner join tblmember c
+                            on a.seqMember = c.seq
+                                    order by a.regdate desc)z)j 
+             
+    </select> -->
+    <select id="list" resultType="com.test.bnna.member.board.qna.QnaDTO">
+    
+   <!--  select rownum, z.* from (select * from tblquestion a
+                inner join tblqcategory b
+                    on a.seqQCategory=b.seq
+                        inner join tblmember c
+                            on a.seqMember = c.seq
+                                    order by a.seq asc)z        -->
+    
+       
+      select * from (select rownum num, z.* from (select * from tblquestion a
+                inner join tblqcategory b
+                    on a.seqQCategory=b.seq
+                        inner join tblmember c
+                            on a.seqMember = c.seq
+                                    order by a.regdate desc)z)j 
+                                        where num between 1 and 10              
+	</select>
+	
+	<insert id="add" parameterType="com.test.bnna.member.board.qna.QnaDTO">
+		insert into tblquestion (seq, seqMember, seqQCategory, title, content, regDate) values (seqQuestion.nextVal, #{seqmember}, #{category}, #{title}, #{content}, default)
+	</insert>
+	
+	<delete id="del" parameterType="com.test.bnna.member.board.qna.QnaDTO">
+		delete from tblquestion where seq = #{seq}
+	</delete>
+	
+	<update id="edit" parameterType="com.test.bnna.member.board.qna.QnaDTO">
+		update tblquestion set
+			title = #{title},
+			seqQcategory = #{category},
+			content = #{content},
+			regdate = sysdate
+				where seq = #{seq}
+	</update>
+	
+	<select id="get" parameterType="String" resultType="com.test.bnna.member.board.qna.QnaDTO">
+		select * from tblquestion a
+	 	inner join tblmember b
+	    on a.seqMember = b.seq
+        inner join tblQCategory c
+        on a.seqQCategory = c.seq
+        where a.seq = #{seq}
+	</select>
+	
+<!-- 	<insert id="add" parameterType="dto">
+		insert into tblReview(seq, seqBook, title, content, star, readcnt, recommendcnt, thread, depth, secret) values (seqReview.nextVal, #{seq}, #{title}, #{content}, #{star}, 0, 0, select max(thread)+1000 from tblReview), 0, 0)
+	</insert> -->
+	
+</mapper>

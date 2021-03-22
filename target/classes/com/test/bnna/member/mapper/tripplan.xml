@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 주로 파일의 이름으로 적는다 -->
+<!-- test.xml(Mapper File) SQL 관리 파일 -->
+<mapper namespace="tripplan">
+
+
+	<!-- 여행 일정 공유 게시판 총 게시물 개수 세기 -->
+	<select id="gettotalcount" parameterType="HashMap" resultType="Integer">
+		select count(*) as cnt from tblTripPlan ${where}
+	</select>
+
+	<!-- 여행 일정 공유 게시판 목록 보기 -->
+	<select id="list" parameterType="HashMap" resultType="TripPlanDTO">
+		select 
+		    * 
+		from (select 
+		            a.*, 
+		            rownum as rnum 
+		        from ( select tp.*, m.id from tbltripplan tp
+						inner join tblMember m
+						    on m.seq = tp.seqMember ${where} order by tp.${order} desc ) a)
+		where rnum between #{begin} and #{end}
+	</select>
+
+</mapper>

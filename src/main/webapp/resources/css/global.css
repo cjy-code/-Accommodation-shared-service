@@ -1,0 +1,532 @@
+/*
+
+    4조
+    모든 페이지에서 사용할 CSS 파일
+    - 21.03.10] 에어비앤나로 새 시작
+    
+*/
+
+/* 
+
+    구조 설정(21.02.14 추가)
+
+    - header(nav 포함)
+    - aside | section
+    - footer
+    - 의 구조
+
+*/
+
+aside {
+    width: 200px;
+    margin: 15px;
+    margin-top: 250px;
+    min-height:1000px;
+    float:left;
+}
+
+.mainsection {
+	margin:15px;
+    margin-top: 250px;
+}
+
+.contentsection {
+    min-width: 880px;
+    margin: 15px;
+    margin-top: 250px;
+    float:left;
+}
+
+footer {
+    clear:both;
+}
+
+/*
+
+    글꼴
+
+    1. 제목(이사만루 Medium)
+    2. 일반(에스코어드림Lt)
+    3. 글꼴 + 태그 선택자 설정
+    4. 헤딩 설정
+    5. 헤딩 크기 설정
+    6. 헤딩 태그(white)
+    7. 일반 강조(string, b태그)
+
+*/
+
+/* 1. 제목(이사만루 Medium) */
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 2. 일반(에스코어드림Lt) */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 3. 글꼴 + 태그 선택자 */
+body, p, div, span, ul, ol, li, dl, dt, dd, table, th, td, a, blockquote, textarea, fieldset, small, strong, b, i, em {
+    font-family: 'S-CoreDream-3Light';
+    color:#555;
+    line-height:1.5em;
+    font-size:15px;
+}
+
+/* 4. 헤딩 설정 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'GongGothicMedium';
+    color:#666;
+}
+
+/* 5. 헤딩 크기 설정 */
+h1 { font-size:45px; }
+h2 { font-size:40px; }
+h3 { font-size:30px; }
+h4 { font-size:25px; }
+h5 { font-size:20px; }
+h6 { font-size:15px; }
+
+/* 6. 헤딩 태그(white) */
+
+.h1-white, .h2-white, .h3-white, .h4-white, .h5-white, .h6-white {
+    font-family: 'GongGothicMedium';
+    color:white;
+}
+
+/* 7. 일반 강조 */
+strong, b {
+    font-family: 'S-CoreDream-3Light';
+    color:#666;
+}
+
+/*
+
+    텍스트 박스 설정
+    
+*/
+
+textarea {
+    resize:none;
+}
+
+.noline {
+    outline: none;
+}
+
+.form-control:focus {
+    box-shadow:none;
+    border-color:#ccc;
+}
+
+/*
+
+    크기 설정
+
+    1. 로고 이미지
+    2. 텍스트박스
+    3. 숙소 이미지
+    4. 테이블
+
+*/
+
+/* 1. 로고 이미지 */
+
+.logo {
+    width:250px;
+    margin-bottom:20px;
+    margin-right:10px;
+    margin-left:-5px;
+}
+
+/* 2. 텍스트박스 */
+
+.small {
+    width:200px;
+}
+
+.medium {
+    width:300px;
+}
+
+.large {
+    width:400px;
+}
+
+/* 3. 숙소 이미지 */
+
+.bnb-sm {
+    width:150px;
+}
+
+.bnb-md {
+    width:210px;
+}
+
+.bnb-lg {
+    width:270px;
+}
+
+/* 4. 테이블 */
+
+.tbl-sm {
+    width:650px;
+}
+
+.tbl-md {
+    width:850px;
+}
+
+.tbl-lg {
+    width:1000px;
+}
+
+/*
+
+    기타
+    
+    1. 디스플레이 변경
+        - inline 으로 바꿔야할 때 사용하는 클래스
+        - inline-block 으로 바꿔야할 때 사용하는 클래스
+    2. 링크 설정
+    3. 버튼 설정
+    4. 리스트 점 없애기
+    5. 모달창 화면 가운데로 뜨기
+
+*/
+
+/* 1. 디스플레이 */
+
+.inline {
+    display:inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+/* 2. 링크 설정 */
+
+a:hover {
+    text-decoration: none;
+    color:#f18579ff;
+    font-weight:bold;
+}
+
+a h5:hover {
+    text-decoration: none;
+    color:#f18579ff;
+    font-weight:bold;
+}
+
+
+
+/* 3. 버튼 설정 */
+
+.btn-general {
+    background-color:#f05e61ff;
+    color:white;
+    border:1px solid #f05e61ff;
+    border-radius: 4px;
+    padding: 5px 12px;
+}
+
+.btn-general:hover {
+    background-color: transparent;
+    border:1px solid #ccc;
+    color:#f05e61ff;
+}
+
+input[type=button], button {
+	outline: none !important;
+}
+
+/* 4. 리스트 점 없애기 21.02.14 추가 */
+ul {
+    list-style:none;
+}
+
+/* 5. 모달창 화면 가운데로 뜨기 */
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+    .modal:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: " ";
+            height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+/* 
+
+    footer 관련 추가
+    (21.03.10)
+
+    1. footer
+
+
+*/
+
+
+/* 1. header */
+header {
+    padding:5px 0px 10px 0px;
+    text-align: center;
+}
+
+/* headerlink */
+#headerlink {
+    text-align:right;
+    margin:20px;
+}
+
+.headerlink-item {
+    border-right: 1px solid #999;
+    padding: 0px 10px 0px 6px;
+}
+
+.container header .last {
+    border: none;
+}
+
+/* searcharea - 상단 숙소 검색바 */
+.searcharea {
+    border: 2px solid #eee;
+    border-radius: 35px;
+    width: 900px;
+    height: 70px;
+    padding-top: 5px;
+    margin-left: 120px;
+    padding-left: 13px;
+    background-color: white;
+}
+
+.btn-search {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f05e61ff;
+}
+
+.btn-search span {
+    color: white;
+    /* font-weight: 100; */
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.searcharea input {
+    border: none;
+    border-right: 2px solid #eee;
+    width: 180px;
+    height: 50px;
+    padding: 0px 15px;
+}
+
+#location {
+    border:transparent;
+    width:180px;
+}
+
+.form-control {
+    -webkit-box-shadow: none;
+}
+
+ /* header */
+ header {
+    /* border: black solid 1px; */
+    /* height: 235px; */
+    background-color: #ffe3e3;
+    /* border-bottom: 1px solid #e79f75; */
+    -webkit-transition-duration:0.4s;
+    -webkit-transition-timing-function:ease;
+    transition-duration:0.4s;
+    transition-timing-function:ease;
+    position:fixed;
+    width: 1150px;
+    z-index: 0;
+}
+
+.down {
+    height: 180px;
+    background-color:rgb(255, 255, 255);
+    -webkit-transition-duration:0.4s;
+    -webkit-transition-timing-function:ease;
+    transition-duration:0.4s;
+    transition-timing-function:ease;
+    box-shadow: 0px 20px 25px -20px #AAA;
+}
+
+/* + 헤더 아래 메뉴 경로 보여주는 바  */
+section #menupath { 
+    border-left: 3px solid #e79f75;
+    padding-left: 10px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+section #menupath span {
+    color: #e79f75;
+    vertical-align: middle;
+}
+
+/* 2. sidemenu */
+#introtitle {
+    width:100%;
+    padding:15px;
+    text-align:center;
+    clear:both;
+    background-color: #888;
+    border-top-left-radius: 15px;
+}
+
+#sidemenu {
+    background-color: white;
+    border:1px solid #ccc;
+    width:100%;
+    padding:15px 0px;
+    clear:both;
+    border-bottom-left-radius: 15px;
+}
+
+.menuitem {
+    margin-top:30px;
+}
+
+.menusubitem {
+    margin-left:-25px;
+    margin-top:15px;
+}
+
+/* 3. footer */
+
+/* footer 변경 21.03.12 */
+
+footer {
+    background-color:#e6e6e6;
+}
+
+#footerlink > ul {
+    float: left;
+    margin:1% 4%;
+    text-align: left;
+
+}
+
+#footerlink::after {
+    content: "";
+    display: block;
+    clear: both;
+    margin-bottom: 20px;
+}
+
+footer .copy {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+
+/* footer에 고정되어있는 logo */
+#logo {
+    width:220px;
+    margin: -10px 0px -10px -630px;
+}
+
+footer {
+    background-color: rgb(247, 247, 247);
+    text-align:center;
+    padding: 20px;
+}
+
+footer .click_footer {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    top: 30px;
+    left: 30px;
+    margin-left: -20px;
+}
+
+footer .hot_line {
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+    background-color: #f18579ff;
+    border-radius: 20px;
+    padding: 16px;
+    margin-left: 130px;
+}
+
+footer .hot_line, footer .hot_line p {
+    color: white;
+    font-size: 1.1em;
+}
+
+
+
+/* floating top */
+#top {
+    text-align:center;
+    position:fixed;
+    padding:20px;
+    bottom:0px;
+    right:0px;
+}
+
+#top > span {
+    font-size:1.5em;
+    color:#e79f75;
+}
+
+
+
+
+/* + 페이지 바 넣을까 말까 고민중 */
+/* pagination */
+.pagearea {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+color: black;
+float: left;
+padding: 8px 16px;
+text-decoration: none;
+}
+
+.pagination a.active {
+background-color:#f18579ff;
+/* background-color:rgb(58, 58, 58); */
+color: white;
+border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+background-color: #ddd;
+border-radius: 5px;
+}
+
+.pagearea {
+    text-align: center;
+}

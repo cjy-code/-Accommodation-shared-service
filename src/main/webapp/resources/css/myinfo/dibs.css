@@ -1,0 +1,100 @@
+/* 
+
+    Dibs 관심 숙소 CSS
+    21.03.15
+
+*/
+
+.listarea {
+    width: 880px;
+}
+
+.listarea::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* 1. 안내메세지 */
+.rule li {
+    list-style: square;
+}
+
+/* 2. 찜한 bnb */
+.listarea .bnb {
+    width: 280px;
+    height: 290px;
+    text-align: center;
+    float: left;
+    border-radius: 20px;
+    margin: 10px 5px;
+    box-shadow: 0px 5px 15px -5px #AAA;
+}
+
+.listarea .bnb.bnb:hover {
+    box-shadow: 0px 15px 15px -2px #AAA;
+    cursor: pointer;
+}
+
+
+.listarea .bnb .crop {
+    width: 280px;
+    height: 180px;
+    overflow: hidden;
+    margin: -1px 0px 0px -1px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    text-align:center;
+    line-height:200px;
+    display: inline-block; 
+}
+
+.listarea .bnb img {
+    max-width:100%; 
+    vertical-align: top;
+    display: inline-block; 
+}
+
+/* 숙소 정보 */
+.listarea .bnb .glyphicon-heart {
+    margin-left: 225px;
+    margin-top: 5px;
+    font-size: 1.8em;
+    color: #f05e61ff;
+}
+
+.listarea .bnb .glyphicon-heart:hover {
+    color: rgb(255, 206, 208);
+}
+
+.listarea .bnb .bnbinfo {
+    margin-top: -30px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.bnbinfo .bnbtype, .bnbinfo .room {
+    color: #BBB;
+}
+
+.bnbinfo .bnbtype {
+    font-size: 1.1em;
+}
+
+.bnbinfo .name {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.bnbinfo .price {
+    color: #333;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-top: 5px;
+    display: inline-block;
+}
+
+.bnbinfo .price span {
+    font-weight: normal;
+    font-size: 0.9em;
+}

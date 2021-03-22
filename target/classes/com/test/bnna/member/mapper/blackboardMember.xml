@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="blackboardMember">
+	<select id="list" parameterType="map" resultType="com.test.bnna.member.board.blackboard.MemberDTO">
+		select * from tblMember where ${condition} like '%'||#{keyword}||'%'
+	</select>
+</mapper>

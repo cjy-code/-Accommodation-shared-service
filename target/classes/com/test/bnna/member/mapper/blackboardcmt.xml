@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="blackboardcmt">
+	
+	<insert id="add" parameterType="com.test.bnna.member.board.blackboard.BlackBoardCmtDTO">
+		insert into tblBlackBoardCmt (seq, seqMember, seqBlackBoard, content, regdate) values (seqBlackBoardCmt.nextVal, #{seqMember}, #{seqBlackBoard}, #{content}, default)
+	</insert>
+	
+	<select id="getAddCmt" resultType="com.test.bnna.member.board.blackboard.BlackBoardCmtDTO">
+		select bbc.*, (select id from tblMember where seq = bbc.seqMember) as id, (select name from tblMember where seq = bbc.seqMember) as name from tblBlackBoardCmt bbc where bbc.seq = (select max(seq) from tblBlackBoardCmt)
+	</select>
+	
+	<delete id="del" parameterType="String">
+		delete from tblBlackBoardCmt where seq = #{seqBlackBoardCmt}
+	</delete>
+	
+	<select id="get" parameterType="String" resultType="blackboardcmtdto">
+		select * from tblBlackBoardCmt where seq = #{seq}
+	</select>
+
+</mapper>

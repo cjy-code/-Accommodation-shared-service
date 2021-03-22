@@ -1,0 +1,118 @@
+/* 
+
+    my page - mileage CSS
+    21.03.11
+
+    + 유의사항) position static이외의 것으로 줄 땐 z-index 확인할 것
+
+*/
+
+/* 추가 21.03.14 contentsection 너비 잡아야 원래대로 나옴ㅠ */
+.contentsection {
+    width: 880px;
+    margin: 15px;
+    margin-top: 250px;
+    float:left;
+}
+
+/* 1. myPage Info Box */
+.infobox {
+    background-color: rgba(241, 169, 121, 0.185);
+    height: 160px;
+    padding: 30px 40px;
+    margin-top: 20px;
+}
+
+.crop {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    line-height:100px;
+    text-align:center;
+    background-color: white;
+    display: inline-block;
+}
+
+.crop img {
+    max-width:100%; 
+    max-height:100%;
+    vertical-align:middle;
+    display: inline-block;
+}
+
+.infobox .basicinfo {
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    left: 20px;
+}
+
+.infobox .basicinfo h4 {
+    color : rgb(241, 127, 50);
+}
+
+
+/* 2. infobox 우측, 숫자로 보는 내역들 */
+.infobox .numbered {
+    margin-left: 320px;
+    margin-top: -120px;
+}
+
+.infobox .numbered div {
+    display: inline-block;
+    padding: 15px;
+    margin-left: 5px;
+}
+
+.infobox .numbered .glyphicon:nth-child(1) {
+    display: block;
+    color:  rgb(241, 127, 50);
+    font-size: 25px;
+    padding: 5px 0px 8px 20px;
+}
+
+.infobox .numbered .num {
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+
+
+/* 3. mileage box, info box 하단 마일리지 프리뷰 구역 */
+.mbox .now {
+    padding-left: 15px;
+}
+.mbox .thismonth {
+    padding-bottom: 20px;
+    padding-left: 280px;
+}
+
+.mbox .now div, .mbox .thismonth div {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: rgb(32, 32, 32);
+}
+
+.mbox .minfo li {
+    list-style: square;
+}
+
+
+/* 4. mileage list table */
+.btns .btn:focus {
+	outline: none;	
+}
+
+.listarea .table {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.listarea .table th {
+    background-color: #F6F6F6;
+    text-align: center;
+}
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="eventboard">
+
+<!-- 	<select id="list" resultType="eventBoarddto"> -->
+<!-- 		select e.seq as seq, e.seqadmin as seqadmin, e.title as title, e.content as content, e.regdate as regdate, e.readcnt as readcnt,e.image as image, e.orgimage as orgimage, e.thread as thread, e.depth as depth, a.id as id, a.pw as pw from tblevent e join tbladmin a on e.seqadmin = a.seq order by thread desc -->
+<!-- 	</select> -->
+
+	<select id="list" parameterType="hashMap" resultType="eventBoarddto">
+		select
+			e.seq as seq,
+			e.seqadmin as seqadmin, 
+			e.title as title, 
+			e.content as content, 
+			e.regdate as regdate, 
+			e.readcnt as readcnt,
+			e.image as image, 
+			e.orgimage as orgimage, 
+			e.thread as thread, 
+			e.depth as depth, 
+			a.id as id, 
+			a.pw as pw 
+		from tblevent e
+			join tbladmin a
+			on e.seqadmin = a.seq
+			<where>
+				<if test='#{search} != null or #{search} != ""'>
+				title like '%'||#{search}||'%' or content like '%'||#{search}||'%'
+				</if>
+			</where>
+			order by thread desc
+	</select>
+	
+	<select id="get" parameterType="String" resultType="eventBoarddto">
+		select e.seq as seq, e.seqadmin as seqadmin, e.title as title, e.content as content, e.regdate as regdate, e.readcnt as readcnt,e.image as image, e.orgimage as orgimage, e.thread as thread, e.depth as depth, a.id as id, a.pw as pw from tblevent e join tbladmin a on e.seqadmin = a.seq where e.seq = #{seq}
+	</select>
+	
+	<select id="clist" parameterType="String" resultType="eventCmtdto">
+		select ec.content as content, ec.regdate as regdate, ec.seq as seq, m.id as id from tbleventcmt ec join tblmember m on ec.seqmember = m.seq join tblevent e on ec.seqevent = e.seq where ec.seqevent = #{seq} order by e.seq
+	</select>
+	
+	<insert id="add" parameterType="eventBoarddto">
+		insert into tblevent (seq,seqAdmin,title,content,regdate,readcnt,image,orgimage,thread,depth) values (seqevent.nextVal, #{seqAdmin}, #{title}, #{content},default, 100, #{image},#{orgImage},3000,0)
+	</insert>
+	
+	<update id="edit" parameterType="eventBoarddto">
+		update tblevent set title = #{title}, content = #{content}, regdate = sysdate where seq = #{seq}
+	</update>
+	
+	<delete id="del" parameterType="String">
+		delete from tblevent where seq = #{seq}
+	</delete>
+	
+	<delete id="delcomment" parameterType="String">
+		delete from tbleventcmt where seq = #{seq}
+	</delete>
+	
+</mapper>

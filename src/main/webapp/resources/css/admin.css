@@ -1,0 +1,441 @@
+/*
+
+    4조
+    관리자 모든 페이지에서 사용할 CSS 파일
+
+	/*
+	
+		==Color Table==
+		[value]		[name]
+		#F18579		Pink
+		#56342B		Brown
+		#B16359		Brown
+		#E79F75		Orange
+
+		==BookJuck Color Table==
+		#8CB369		Green
+		#F4A259		Pink
+		#BC4B51		Brown
+		
+	*/
+
+/* header */
+header {
+    margin-top: 20px;
+}
+
+/* 로그인, 로그아웃 버튼 */
+header .loginout button {
+    float: right;
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* 로고 이미지 */
+header .logo img {
+    display: block;
+    float: left;
+    width: 250px;
+}
+
+header .logo::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 메인메뉴 */
+header .mainmenu {
+    background-color: #e79f75;
+    margin-bottom: 20px;
+}
+
+/* 메뉴이름 */
+header .mainmenu h6 {
+    display: inline-block;
+    width: 16%;
+    text-align: center;
+    line-height: 2.5em;
+}
+
+header .mainmenu a:hover h6 {
+    color: #FFFFFF;
+}
+
+header #dropmenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: rgba(244, 162, 89, 0.7); */
+    background-color: rgb(255, 235, 226);
+}
+
+header #dropmenu a {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+header #dropmenu a:nth-child(1) {
+	margin-top: 5px;
+}
+
+/* section */
+
+section {
+    min-height: 700px;
+    margin-bottom: 20px;
+}
+
+/* footer */
+
+footer {
+    clear:both;
+}
+
+footer {
+    background-color:#e6e6e6;
+}
+
+#footerlink > ul {
+    float: left;
+    margin:1% 4%;
+    text-align: left;
+
+}
+
+#footerlink::after {
+    content: "";
+    display: block;
+    clear: both;
+    margin-bottom: 20px;
+}
+
+footer .copy {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+
+/* footer에 고정되어있는 logo */
+footer .logo {
+    width:250px;
+}
+
+footer {
+    background-color: rgb(247, 247, 247);
+    text-align:center;
+    padding: 20px;
+}
+
+footer .click_footer {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    top: 30px;
+    left: 30px;
+    margin-left: -20px;
+}
+
+footer .hot_line {
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+    background-color: #f18579ff;
+    border-radius: 20px;
+    padding: 16px;
+    margin-left: 130px;
+}
+
+footer .hot_line, footer .hot_line p {
+    color: white;
+    font-size: 1.1em;
+}
+
+/* global */
+
+/*
+
+    글꼴
+
+    1. 제목(레코체)
+    2. 일반(넥슨 Lv2 고딕)
+    3. 글꼴 + 태그 선택자 설정
+    4. 헤딩 설정
+    5. 헤딩 크기 설정
+    6. 헤딩 태그(white)
+    7. 일반 강조(string, b태그)
+
+*/
+
+/* 1. 제목(이사만루Medium) */
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 2. 일반(에스코어드림Lt) */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 3. 글꼴 + 태그 선택자 */
+body, p, div, span, ul, ol, li, dl, dt, dd, table, th, td, a, blockquote, textarea, fieldset, small, strong, b, i, em {
+    font-family: 'S-CoreDream-3Light';
+    color:#555;
+    line-height:1.5em;
+    font-size:15px;
+}
+
+/* 4. 헤딩 설정 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'GongGothicMedium';
+    color:#56342b;
+}
+
+/* 5. 헤딩 크기 설정 */
+h1 { font-size:45px; }
+h2 { font-size:40px; }
+h3 { font-size:30px; }
+h4 { font-size:25px; }
+h5 { font-size:20px; }
+h6 { font-size:15px; }
+
+/* 6. 헤딩 태그(white) */
+
+.h1-white, .h2-white, .h3-white, .h4-white, .h5-white, .h6-white {
+    font-family: 'GongGothicMedium';
+    color:white;
+}
+
+/* 7. 일반 강조 */
+strong, b {
+    font-family: 'S-CoreDream-3Light';
+    color: #B16359;
+}
+
+/*
+
+    텍스트 박스 설정
+    
+*/
+
+textarea {
+    resize:none;
+}
+
+.noline {
+    outline: none;
+}
+
+.form-control:focus {
+    box-shadow:none;
+    border-color:#ccc;
+}
+
+/*
+
+    크기 설정
+
+    1. 로고 이미지
+    2. 텍스트박스
+    3. 도서표지 이미지
+    4. 테이블
+
+*/
+
+/* 2. 텍스트박스 */
+
+.small {
+    width:200px;
+}
+
+.medium {
+    width:300px;
+}
+
+.large {
+    width:400px;
+}
+
+/* 3. 도서표지 이미지 */
+
+.book-sm {
+    width:130px;
+}
+
+.book-md {
+    width:170px;
+}
+
+.book-lg {
+    width:210px;
+}
+
+/* 4. 테이블 */
+
+.tbl-sm {
+    width:650px;
+}
+
+.tbl-md {
+    width:850px;
+}
+
+.tbl-lg {
+    width:1000px;
+}
+
+/*
+
+    기타
+    
+    1. 인라인(block 태그를 inline으로 바꿔야할 때 사용하는 클래스)
+    2. 링크 설정
+    3. 버튼 설정
+    4. 리스트 점 없애기
+    5. 모달창 화면 가운데로 뜨기
+
+*/
+
+/* 1. 인라인 */
+
+.inline {
+    display: inline;
+}
+
+/* 2. 링크 설정 */
+
+a:hover {
+    text-decoration: none;
+    color: #F4A259;
+    border: none;
+    font-weight: bold;
+}
+
+/* 3. 버튼 설정 */
+
+.btn-general {
+    background-color: #BC4B51;
+    color: white;
+}
+
+.btn-general:hover {
+    background-color: transparent;
+    border:1px solid #ccc;
+    color: #F4A259;
+}
+
+/* 4. 리스트 점 없애기 */
+
+ul {
+    list-style: none;
+}
+
+/* 5. 모달창 화면 가운데로 뜨기 */
+
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+    .modal:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: " ";
+            height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* navigation bar */
+
+.nav {
+    width:105%;
+}
+
+.nav > li {
+    width:16%;
+    text-align:center;
+}
+
+.nav > li > a:hover {
+    background-color:transparent;
+}
+
+.nav > li > a:active {
+    background-color:transparent;
+}
+
+.nav > li> a:visited {
+    background-color:transparent;
+}
+
+.nav > li > a:focus{
+    background-color:transparent;
+}
+
+a, button, input[type=button] {
+    outline:none !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* + 헤더 아래 메뉴 경로 보여주는 바 menupath (21.03.13 추가)  */
+section #menupath { 
+    border-left: 3px solid #e79f75;
+    padding-left: 10px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+section #menupath span {
+    color: #e79f75;
+    vertical-align: middle;
+}
+
+
+/* + 페이지바 구역 가운데 정렬 (21.03.13 추가)  */
+.pagearea {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+color: black;
+float: left;
+padding: 8px 16px;
+text-decoration: none;
+}
+
+.pagination a.active {
+background-color:#e79f75;
+color: white;
+border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+background-color: #ddd;
+border-radius: 5px;
+}
+
+.pagearea {
+    text-align: center;
+}

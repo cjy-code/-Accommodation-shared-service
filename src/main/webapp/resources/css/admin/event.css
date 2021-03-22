@@ -1,0 +1,150 @@
+.evtsection{
+	margin: 0px 90px;
+}
+
+.evtsection .btns{
+/* 	margin-left: 30px; */
+}
+
+.evtboard{
+/* 	width: 900px; */
+	margin: 20px auto;
+}
+
+/* 리스트 */
+
+.evtboard th:first-child{
+	width: 50px;
+	text-align: center;
+}
+
+.evtboard th:nth-child(2){
+	width: auto;
+}
+
+.evtboard th:nth-child(3){
+	width: 150px;
+}
+
+.evtboard th:nth-child(4){
+	width: 180px;
+}
+
+.evtboard tr>td:first-child {
+	text-align: center;
+	
+}
+
+/* 뷰 */
+.content .table.view tr:first-child {
+	border-bottom: 2px solid #DDDDDD;
+	background: #FAFAFA;
+}
+.content .table.view td {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.content .table.view .title {
+	font-weight: bold;	
+}
+.content .table.view .id {
+	font-size: 11px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 3px;
+}
+.content .table.view .regdate {
+	font-size: 11px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 3px;
+}
+.content .table.view .readcnt {
+	font-size: 11px;
+	float: right;
+	margin-top: 3px;
+}
+
+.content .table.view .content {
+	padding: 25px 15px;
+}
+
+/* 댓글 */
+.content .table.comment {
+	margin-top: 30px;
+}
+.content .table.comment .comment{
+	padding-left: 15px;
+	display: block;
+}
+.content .table.comment .regdate{
+	font-size: 11px;
+	float: right;
+	margin-top: 3px;
+}
+.content .table.comment .delete{
+	font-size: 11px;
+	float: right;
+	margin-top: 3px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+.content .table.comment .id {
+	font-size: 11px;
+	float: right;
+	margin-top: 3px;
+	margin-right: 5px;
+}
+
+.content .commentbox {
+	margin: 10px 15px 30px 15px;
+}
+
+.glyphicon {
+	color: #6C757D;
+}
+
+
+
+#content {
+	height: 400px;
+}
+
+
+.content .table.delete {
+	width: 300px;
+	margin: 100px auto 300px auto;
+	text-align: center;
+}
+.content .table.delete tr:first-child {
+	border-bottom: 2px solid #DDDDDD;
+	background: #FAFAFA;
+}
+
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+color: black;
+float: left;
+padding: 8px 16px;
+text-decoration: none;
+}
+
+.pagination a.active {
+background-color:#f18579ff;
+/* background-color:rgb(58, 58, 58); */
+color: white;
+border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+background-color: #ddd;
+border-radius: 5px;
+}
+
+.pagearea {
+    text-align: center;
+}

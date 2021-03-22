@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 주로 파일의 이름으로 적는다 -->
+<!-- test.xml(Mapper File) SQL 관리 파일 -->
+<mapper namespace="dibs">
+
+
+	<select id="gettotalcount" resultType="int">
+		select count(*) as cnt from tblDibs where seqMember = 1
+	</select>
+
+	<select id="list" parameterType="HashMap" resultType="DibsDTO">
+		select 
+		    * 
+		from (select 
+		            a.*, 
+		            rownum as rnum 
+		        from ( select 
+		                    d.*,
+		                    b.name,
+		                    b.bathroom,
+		                    b.bedroom,
+		                    b.price,
+		                    bt.bnbtype,
+		                    pic.image
+		                from tblDibs d
+		                    inner join tblMember m
+		                        on d.seqmember = m.seq
+		                            inner join tblBnb b
+		                                on b.seq = d.seqbnb
+		                                    inner join tblbnbtype bt
+		                                        on b.seqbnbtype = bt.seq
+		                                            inner join (select
+		                                                         *   
+		                                                        from
+		                                                        (select 
+		                                                            p.seqbnb,
+		                                                            p.image,
+		                                                            RANK() OVER (PARTITION BY b.seq
+		                                                            ORDER BY b.seq, p.seq) AS RANKING
+		                                                        from tblBnb b
+		                                                            inner join tblBnbpic p
+		                                                                on b.seq = p.seqbnb)
+		                                                        WHERE RANKING =1) pic
+		                                                        on pic.seqbnb = b.seq
+		                where d.seqmember = 1
+		                    order by d.seq desc ) a)
+		where rnum between #{begin} and #{end}
+	</select>
+	
+	
+	
+	<delete id="del" parameterType="String">
+		delete from tblDibs where seq = #{seq}
+	</delete>
+
+</mapper>

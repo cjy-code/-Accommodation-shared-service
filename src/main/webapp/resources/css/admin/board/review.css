@@ -1,0 +1,47 @@
+/* 리뷰게시판 CSS */
+
+/* 고객용) 리뷰 목록 조회(list.jsp) */
+
+#listtbl {
+	width:100%;
+}
+
+#listtbl th, #listtbl td {
+	text-align:center;
+}
+
+/* 고객용) 리뷰 상세 조회(view.jsp) */
+
+#viewtbl {
+	width:100%;
+}
+
+#viewtbl th, #viewtbl td {
+	text-align:center;
+}
+
+/* 리뷰 첨부이미지 */
+
+#reviewPic {
+	display:block;
+	margin:30px auto;
+	max-width:350px;
+}
+
+/* 수정하기, 삭제하기 버튼 */
+
+#btns {
+    width:100%;
+    text-align:center;
+    margin:20px 0;
+}
+
+/* 고객용) 리뷰 작성하기(add.jsp) */
+
+#addtbl th, #addtbl td {
+	text-align:center;
+}
+
+#addtbl tr:nth-child(3) textarea {
+	height:200px;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 주로 파일의 이름으로 적는다 -->
+<!-- test.xml(Mapper File) SQL 관리 파일 -->
+<mapper namespace="mileage">
+
+	<select id="list" resultType="MileageDTO">
+		select
+		    mi.*,
+		    m.id,
+		    m.name,
+		    m.regdate as memdate,
+		    m.pic
+		from tblMember m
+		    inner join tblMileage mi
+		        on m.seq = mi.seqMember
+		where seqMember = 1
+			order by mi.seq desc
+	</select>
+
+</mapper>

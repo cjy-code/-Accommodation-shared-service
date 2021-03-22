@@ -1,0 +1,408 @@
+/* 
+
+    여행 일정 관련 Main CSS
+    1. Global.css (전체 페이지 통일감을 위한)
+    //2. main frame CSS -> tpmake.css로 이동
+    3. tripinfo header CSS
+    4. tripinfo mainsection CSS
+    5. tripinfo footer CSS
+
+*/
+html {
+    height: 900px !important;
+}
+
+/* bootstrap container width css 제거 */
+body .container {
+    width: 100%;
+    margin: 10px auto;
+    height: 900px !important;
+}
+
+/* ------ 1. Global.css (전체 페이지 통일감을 위한) ------- */
+
+/*
+
+    글꼴
+
+    1. 제목(이사만루 Medium)
+    2. 일반(에스코어드림Lt)
+    3. 글꼴 + 태그 선택자 설정
+    4. 헤딩 설정
+    5. 헤딩 크기 설정
+    6. 헤딩 태그(white)
+    7. 일반 강조(string, b태그)
+
+*/
+
+/* 1. 제목(이사만루 Medium) */
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 2. 일반(에스코어드림Lt) */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 3. 글꼴 + 태그 선택자 */
+body, p, div, span, ul, ol, li, dl, dt, dd, table, th, td, a, blockquote, textarea, fieldset, small, strong, b, i, em {
+    font-family: 'S-CoreDream-3Light';
+    color:#555;
+    line-height:1.5em;
+    font-size:15px;
+}
+
+/* 4. 헤딩 설정 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'GongGothicMedium';
+    color:#666;
+}
+
+/* 5. 헤딩 크기 설정 */
+h1 { font-size:45px; }
+h2 { font-size:40px; }
+h3 { font-size:30px; }
+h4 { font-size:25px; }
+h5 { font-size:20px; }
+h6 { font-size:15px; }
+
+/* 6. 헤딩 태그(white) */
+
+.h1-white, .h2-white, .h3-white, .h4-white, .h5-white, .h6-white {
+    font-family: 'GongGothicMedium';
+    color:white;
+}
+
+/* 7. 일반 강조 */
+strong, b {
+    font-family: 'S-CoreDream-3Light';
+    color:#666;
+}
+
+/*
+
+    텍스트 박스 설정
+    
+*/
+
+textarea {
+    resize:none;
+}
+
+.noline {
+    outline: none;
+}
+
+.form-control:focus {
+    box-shadow:none;
+    border-color:#ccc;
+}
+
+/*
+
+    크기 설정
+
+    1. 로고 이미지
+    2. 텍스트박스
+    3. 숙소 이미지
+    4. 테이블
+
+*/
+
+/* 1. 로고 이미지 */
+
+.logo {
+    width:250px;
+    margin-bottom:20px;
+    margin-right:10px;
+    margin-left:-5px;
+}
+
+/* 2. 텍스트박스 */
+
+.small {
+    width:200px;
+}
+
+.medium {
+    width:300px;
+}
+
+.large {
+    width:400px;
+}
+
+/* 3. 숙소 이미지 */
+
+.bnb-sm {
+    width:150px;
+}
+
+.bnb-md {
+    width:210px;
+}
+
+.bnb-lg {
+    width:270px;
+}
+
+/* 4. 테이블 */
+
+.tbl-sm {
+    width:650px;
+}
+
+.tbl-md {
+    width:850px;
+}
+
+.tbl-lg {
+    width:1000px;
+}
+
+/*
+
+    기타
+    
+    1. 디스플레이 변경
+        - inline 으로 바꿔야할 때 사용하는 클래스
+        - inline-block 으로 바꿔야할 때 사용하는 클래스
+    2. 링크 설정
+    3. 버튼 설정
+    4. 리스트 점 없애기
+    5. 모달창 화면 가운데로 뜨기
+
+*/
+
+/* 1. 디스플레이 */
+
+.inline {
+    display:inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+/* 2. 링크 설정 */
+
+a:hover {
+    text-decoration: none;
+    color:#f18579ff;
+    font-weight:bold;
+}
+
+a h5:hover {
+    text-decoration: none;
+    color:#f18579ff;
+    font-weight:bold;
+}
+
+
+
+/* 3. 버튼 설정 */
+
+.btn-general {
+    background-color:#f05e61ff;
+    color:white;
+    border:1px solid #f05e61ff;
+    border-radius: 4px;
+    padding: 5px 12px;
+}
+
+.btn-general:hover {
+    background-color: transparent;
+    border:1px solid #ccc;
+    color:#f05e61ff;
+}
+
+/* 4. 리스트 점 없애기 21.02.14 추가 */
+ul {
+    list-style:none;
+}
+
+/* 5. 모달창 화면 가운데로 뜨기 */
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+    .modal:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: " ";
+            height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+
+
+/* + 페이지 바 넣을까 말까 고민중 */
+/* pagination */
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+color: black;
+float: left;
+padding: 8px 16px;
+text-decoration: none;
+}
+
+.pagination a.active {
+background-color:#f18579ff;
+color: white;
+border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+background-color: #ddd;
+border-radius: 5px;
+}
+
+.pagearea {
+    text-align: center;
+}
+
+
+
+
+
+
+/* ----------- 3. tripinfo header CSS ---------- */
+header {
+    height: 80px;
+    padding: 0px 20px;
+    box-shadow: 0px 12px 12px -12px ;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+}
+
+header .head-title .logo {
+    width: 200px;
+}
+
+header .head-title .kr {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: rgb(73, 73, 73);
+    margin-left: -15px;
+}
+
+header .head-title .eng {
+    font-size: 1.3em;
+    font-weight: bold;
+    font-style: italic;
+    padding-left: 10px;
+    color: rgb(255, 161, 132);
+    font-variant: small-caps;
+    letter-spacing: 3px;
+}
+
+header .head-menu {
+    margin-top: -80px;
+    text-align: right;
+}
+
+header .head-menu .btn-menu {
+    font-size: 1.5em;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: white;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+header .head-menu .btn-menu:focus {
+    outline: none;
+    background-color: rgb(243, 243, 243);
+    border-radius: 8px;
+}
+
+header .head-menu span {
+    font-size: 1em;
+    color: #f18579ff;
+}
+
+
+/* dropdown 메뉴 */
+.head-menu {
+    position: relative;
+}
+
+header .dropdown-menu {
+    position: absolute;
+    left: initial;
+    right: -20px;
+    top: 50px;
+    width: 100px;
+}
+
+header .dropdown-menu ul {
+    margin-bottom: -1px;
+}
+
+header .dropdown-menu ul li {
+    padding: 5px 0px;
+    margin-left: -20px;
+    margin-right: 20px;
+}
+
+header .dropdown-menu ul li a {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+
+
+/* ----------- 4. tripinfo mainsection CSS ---------- */
+.mainsection {
+    width: 100%;
+    min-height: 800px;
+}
+
+
+
+
+/* ----------- 5. tripinfo footer CSS ---------- */
+footer {
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    background-color: #F6F6F6;
+    padding: 20px 0px;
+}
+
+footer .logo {
+    width: 160px;
+    margin: -15px 0px -5px 0px;
+}
+
+footer .loca {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+footer .footerTxt {
+    margin-bottom: 5px;
+}
+

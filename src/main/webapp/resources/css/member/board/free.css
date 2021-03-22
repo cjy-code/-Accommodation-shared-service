@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.table{
+	width: 880px;
+}
+
+.table th:nth-child(1){
+	width: 30px;
+	text-align: center;
+}
+.table th:nth-child(4){
+	width: 110px;
+	text-align: center;
+}
+.table th:nth-child(5){
+	width: 60px;
+	text-align: center;
+}
+
+.table tr td:nth-child(4),
+.table tr td:nth-child(5){
+	text-align: center;
+}
+
+
+/*버튼 footer*/
+
+#searchType{
+	margin-left: 290px;
+}
+
+.btns input{
+	margin-left: 0px;
+	border-radius: 5px;
+}
+
+#btnWrite{
+	margin-left: 200px;
+}
+
+.btns .btn-warning{
+	margin-left: 0px;
+}
+
+.btns .btn-success{
+	margin-left: 0px;
+}
+
+.pagination{
+	margin: auto;
+}
+
+.pagebar{
+	margin:auto;
+	width: 180px;
+	
+}

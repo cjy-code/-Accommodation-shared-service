@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configureation 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<!--
+	
+		board.list
+		board.add
+		board.view
+		
+		member.auth
+		
+	-->
+	
+	<!-- 관리자 tiles -->
+	<definition name="admin.board.*.*" template="/WEB-INF/views/layout/admin.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/admin/inc/asset.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/admin/inc/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/admin/board/{1}/{2}.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/admin/inc/footer.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="admin.*.*" template="/WEB-INF/views/layout/admin.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/admin/inc/asset.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/admin/inc/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/admin/{1}/{2}.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/admin/inc/footer.jsp"></put-attribute>
+	</definition> 
+
+
+
+	<!-- 사용자 tiles -->
+	
+	<definition name="member.sidebar.*.*" template="/WEB-INF/views/layout/sidebar.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/member/inc/asset.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/member/inc/header.jsp"></put-attribute>
+		<put-attribute name="sidebar" value="/WEB-INF/views/member/inc/sidebar.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/member/{1}/{2}.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/member/inc/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="member.nosidebar.*.*" template="/WEB-INF/views/layout/member.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/member/inc/asset.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/member/inc/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/member/{1}/{2}.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/member/inc/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="member.board.*.*" template="/WEB-INF/views/layout/sidebar.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/member/inc/asset.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/member/inc/header.jsp"></put-attribute>
+		<put-attribute name="sidebar" value="/WEB-INF/views/member/inc/sidebar.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/member/board/{1}/{2}.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/member/inc/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="member.mypagesidebar.*.*" template="/WEB-INF/views/layout/mypagesidebar.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/member/inc/asset.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/member/inc/header.jsp"></put-attribute>
+		<put-attribute name="mypagesidebar" value="/WEB-INF/views/member/inc/mypagesidebar.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/member/{1}/{2}.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/member/inc/footer.jsp"></put-attribute>
+	</definition>
+	
+	
+	
+	<!-- Trip Plan Tiles (다은 추가) -->
+	<definition name="member.tripplanwfooter.*" template="/WEB-INF/views/layout/tripplanwfooter.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/member/tripplan/asset.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/member/tripplan/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/member/tripplan/{1}.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/member/tripplan/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="member.tripplan.*" template="/WEB-INF/views/layout/tripplan.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/member/tripplan/asset.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/member/tripplan/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/member/tripplan/{1}.jsp"></put-attribute>
+	</definition>
+
+</tiles-definitions>

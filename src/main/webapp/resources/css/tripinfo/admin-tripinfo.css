@@ -1,0 +1,237 @@
+/* 
+    [관리자] 여행정보 게시판 CSS
+
+    1. tripinfo list
+    2. tripinfo view
+    3. tripinfo write
+
+*/
+.mainsection {
+	width: 100%;
+}
+
+
+/*   1. tripinfo list   */
+/* list table */
+.admin-listarea .tbl-tripinfo {
+    text-align: center;
+}
+
+.admin-listarea .tbl-tripinfo th {
+    text-align: center;
+    background-color: rgb(255, 234, 214);
+}
+
+.admin-listarea .tbl-tripinfo td:nth-child(1) {
+    width: 100px;
+}
+
+.admin-listarea .tbl-tripinfo td:nth-child(2) {
+    width: auto;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.admin-listarea .tbl-tripinfo td:nth-child(3) {
+    width: 100px;
+}
+
+.admin-listarea .tbl-tripinfo td:nth-child(4) {
+    width: 150px;
+}
+
+.admin-listarea .tbl-tripinfo td .glyphicon {
+    vertical-align: middle;
+    color: #ac8f7e;
+}
+
+.admin-listarea .tbl-tripinfo td .badge {
+    background-color: #ecb290;
+}
+
+.admin-listarea .tbl-tripinfo tr:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+
+/* 검색창 및 버튼 */
+.boardhead {
+    padding: 15px 0px 10px;
+}
+
+.searcharea {
+    display: inline-block;
+}
+
+.searcharea .boardsearch {
+    width: 300px;
+    float: left;
+    margin-left: 605px;
+}
+
+.searcharea .btn {
+    float: left;
+    background-color: #f1a979ff;
+}
+
+.searcharea .btn span {
+    color: white;
+}
+
+.btns {
+    float: left;
+}
+
+.btns::after {
+    content: ""; 
+    clear: both; 
+    display: block; 
+}
+
+.btns .btn-thumbnail {
+    background-color:#e79f75;
+    color: white;
+}
+
+
+
+
+
+
+/*    2. tripinfo view     */
+/* 제목 + 상위버튼 영역 */
+.viewarea .subject {
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-top: 10px;
+}
+
+.viewarea .btn-list {
+    background-color: #8d5e43;
+    color: white;
+}
+
+
+/* 이미지영역 */
+.viewarea .imgarea .background {
+    border: 1px solid #DDD;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0px;
+}
+
+.viewarea .imgarea img {
+	width: 500px;
+}
+
+.viewarea .imgarea span {
+    color: #fab38b;
+    font-size: 2em;
+    padding: 10px;
+}
+
+.viewarea .imgarea span:hover {
+    color: #f86d1c;
+}
+
+/* 버튼 우측정렬 */
+.viewarea .btnarea {
+    text-align: right;
+}
+
+/* 관련글 영역 */
+.viewarea .related, .viewarea .cmtarea {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.viewarea .related .btn-related {
+    background-color: #8d5e43;
+    color: white;
+    margin-left: 946px;
+}
+
+.viewarea table{
+    margin-top: 10px;
+}
+
+.viewarea .related .tbl-related td:nth-child(1) {
+    font-weight: bold;
+}
+
+.viewarea .related .tbl-related td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+}
+
+
+/* 댓글 영역 */
+.viewarea .cmtarea .tbl-cmt .noborder {
+    border-top: none;
+}
+
+.viewarea .cmtarea .tbl-cmt .small {
+    font-size: 0.8em;
+    height: 8px;
+}
+
+.viewarea .cmtarea .tbl-cmt .crop {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.viewarea .cmtarea .tbl-cmt img {
+    width: 64px;
+}
+
+.viewarea .cmtarea .tbl-cmt .pic {
+    width: 100px;
+}
+
+.viewarea .cmtarea .tbl-cmt .regdate {
+    width: 140px;
+}
+
+.viewarea .cmtarea .tbl-cmt .btn-del {
+    text-align: right;
+    width: 50px;
+}
+
+/* 댓글남기기 영역 */
+.viewarea .cmtarea .cmt-write {
+    display: inline-block;
+    width: 93%;
+}
+
+.viewarea .cmtarea .btn-cmt {
+    height: 110px;
+    width: 6%;
+    margin-top: -130px;
+    background-color: #ee9968;
+    color: white;
+}
+
+
+
+
+
+/* 3. tripinfo write */
+.writearea  .subject, .writearea  .content {
+    margin-bottom: 10px;
+}
+
+.writearea  .subject {
+	text-weight: bold;
+}
+
+.writearea .file {
+    margin-bottom: 5px;
+}
+
+.right {
+    text-align: right;
+}

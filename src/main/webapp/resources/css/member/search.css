@@ -1,0 +1,221 @@
+/*
+
+	숙소 검색 CSS
+	
+*/
+
+/* 지도로 보기, 필터 추가 버튼 */
+#btns {
+    width:100%;
+    text-align:center;
+    margin:20px 0;
+}
+
+/* 숙소소개박스 */
+#bnbbox {
+	float:left;
+	margin:15px;
+	width:auto;
+	height:300px;
+	border:1px solid #ccc;
+	position:relative;
+}
+
+#bnbbox:hover {
+	box-shadow: 5px 5px 5px #ccc;
+}
+
+section:last-child {
+	margin-bottom:200px;
+}
+
+/* 숙소이미지박스 */
+
+#imgbox {
+	float:left;
+	position:relative;
+	width:410px;
+	height:300px;
+}
+
+/* 숙소이미지 */
+
+#bnb {
+	float:left;
+	width:410px;
+	height:298px;
+	position:relative;
+	object-fit:none;
+}
+
+#heart {
+	float:left;
+	position:absolute;
+	bottom:10px;
+	right:10px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 숙소이미지 옆 소개 */
+#intro {
+	position:relative;
+	float:left;
+	width:620px;
+	height:300px;
+	margin:0px 20px;
+}
+
+#title {
+	margin:25px 0px;
+}
+
+/* 숙소상세정보(별점, 규칙 등) */
+#detail {
+	max-width:100%;
+	background:linear-gradient(to top, #ffe400 50%, transparent 50%);
+}
+
+/* 가격박스 */
+
+#price {
+	width:170px;
+	text-align:center;
+	padding:15px;
+	background-color:rgba(231, 159, 117, .5);
+	border-radius:50px;
+	margin:25px 10px;
+}
+
+/* 총가격 */
+
+#total {
+	color:#f18579;
+	font-weight:bold;
+}
+
+/* 검색결과 없을 때의 안내문구 */
+#noresult {
+	text-align:center;
+	margin:400px 0px;
+}
+
+#filterModal table {
+	width:80%;
+	margin:0 auto;
+}
+
+#filterModal table > td {
+	margin:10px;
+}
+
+/* 숙소 상세조회 */
+
+/* 숙소 이미지 슬라이더 */
+
+.bx-wrapper {
+	margin:0 auto;
+	z-index:1;
+}
+
+.bxslider img {
+	width:650px;
+	height:400px;
+	object-fit:cover;
+}
+
+].bx-prev {
+	z-index: 1;
+}
+
+.bx-next {
+	z-index: 1;
+}
+
+.bx-pager-link {
+	color:#56342b;
+}
+
+.bx-pager-link {
+	color:#f18579;
+}
+
+/* 상세정보박스 */
+
+#left {
+	float:left;
+	position:relative;
+	width:700px;
+	border:1px solid #ccc;
+	margin-right:30px;
+	padding:30px;
+}
+
+/* 예약하기박스 */
+
+#right {
+	float:left;
+	width:380px;
+	border:1px solid #ccc;
+	padding:30px;
+	top:10px;
+}
+
+/* 예약하기박스 안의 테이블 */
+#reservetbl {
+	width:300px;
+	margin:0 auto;
+	text-align:center;
+}
+
+#reservetbl th, #reservetbl td {
+	text-align:center;
+	padding:20px;
+}
+
+/* 예약하기 버튼 */
+
+#reservebtn {
+	margin:0 auto;
+}
+
+#reservetbl td > #price {
+	margin:0 auto;
+}
+
+/* 호스트 사진 */
+
+#profile {
+	width:50px;
+	border-radius:50px;
+	margin:20px;
+}
+
+/* 설명(호스트소개, 숙소소개) */
+
+.desc {
+	line-height:200%;
+}
+
+/* 숙소상세조회 지도 */
+
+#map {
+	width:360px;
+	height:360px;
+	margin:10px;
+	float:left;
+}
+
+/* 숙소상세조회 리뷰게시판 */
+
+#reviewtbl {
+	margin:100px 0;
+}
+
+#reviewtbl th, #reviewtbl td {
+	text-align:center;
+}
+
+/* 숙소상세조회 리뷰게시판 pagination */
+.pagebar {
+	text-align:center;
+}

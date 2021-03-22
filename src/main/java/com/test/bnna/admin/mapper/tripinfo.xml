@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 주로 파일의 이름으로 적는다 -->
+<!-- test.xml(Mapper File) SQL 관리 파일 -->
+<mapper namespace="tripinfo">
+
+	<!-- 여행정보 게시판 총 게시물 개수 세기 -->
+	<select id="gettotalcount" parameterType="HashMap" resultType="Integer">
+		select count(*) as cnt from tblTripInfo ${where}
+	</select>
+
+	<!-- 여행정보 게시판 목록 보기 -->
+	<select id="list" parameterType="HashMap" resultType="TripInfoDTO">
+		select 
+		    * 
+		from (select 
+		            a.*, 
+		            rownum as rnum 
+		        from ( select * from tblTripInfo ${where} order by thread desc ) a)
+		where rnum between #{begin} and #{end}
+	</select>
+
+	<!-- 여행정보 게시글 상세조회 -->
+	<select id="view" parameterType="String" resultType="TripInfoDTO">
+		select * from tblTripInfo where seq = #{seq}
+	</select>
+
+	<!-- 여행정보 게시글의 댓글 리스트 가져오기 -->
+	<select id="cmtlist" parameterType="String" resultType="TripInfoCmtDTO">
+		select 
+		    m.pic,
+		    m.id,
+		    tpc.*
+		from tblTripinfocmt tpc
+		    inner join tblMember m
+		        on m.seq = tpc.seqmember
+		where tpc.seqtripinfo = #{seq}
+	</select>
+	
+	<select id="rlist" parameterType="Integer" resultType="TripInfoDTO">
+		select 
+		    subject,
+		    regdate
+		from tblTripInfo
+		where depth != 0 and <![CDATA[thread > #{thread} - 1000 and thread < #{thread}]]>
+	</select>
+	
+	<!-- 리뷰번호에 따른 리뷰이미지를 가져오는 쿼리 -->
+	<select id="ilist" parameterType="String" resultType="TripInfoImgDTO">
+		select * from tblTripInfoImg where seqTripInfo = #{seq}
+	</select>
+	
+	<!-- 여행정보 게시글 쓰기 -->
+	<insert id="add" parameterType="TripInfoDTO">
+		insert into tblTripInfo values (seqTripInfo.nextVal, 1, #{subject}, #{content}, default, default, default, #{thread}, #{depth})
+	</insert>
+	
+	<!-- 가장 큰 thread값 + 1000 반환하기 -->
+	<select id="getThread" resultType="Integer">
+		select nvl(max(thread), 0) + 1000 as thread from tblTripInfo
+	</select>
+	
+	<!-- 게시물의 모든 thread 값 중 답변글의 부모글 thread 값보다 작고, 이전 새글의 thread 값보다 큰 글들을 모두 찾아서 thread - 1 업데이트 -->
+	<update id="updateThread" parameterType="HashMap">
+		update tblTripInfo set thread = thread - 1 where <![CDATA[thread < #{parentThread} and thread > #{previousThread}]]>
+	</update>
+	
+	<!-- 가장 최근 게시글 번호 가져오기 -->
+	<select id="getTripInfoSeq" resultType="String">
+		select max(seq) from tblTripInfo
+	</select>
+	
+	<!-- 게시글에 이미지를 추가 -->
+	<insert id="addimage" parameterType="TripInfoImgDTO">
+		insert into tblTripInfoImg (seq, seqTripInfo, image, orgimage) values (seqTripInfoImg.nextVal, #{seqTripInfo}, #{image}, #{orgimage})
+	</insert>
+	
+	<!-- 게시글 수정할 때 해당 게시물 정보 가져오기 -->
+	<select id="get" parameterType="String" resultType="TripInfoDTO">
+		select * from tblTripInfo where seq = #{seq}
+	</select>
+	
+	<!-- 게시물 수정을 위한 update -->
+	<update id="edit" parameterType="String">
+		update tblTripInfo set subject = #{subject}, content = #{content} where seq = #{seq}
+	</update>
+	
+	<!-- 삭제를 원하는 게시물의 사진도 함께 삭제 -->
+	<delete id="delimg" parameterType="String">
+		delete from tblTripInfoImg where seqTripInfo = #{seq}
+	</delete>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="del" parameterType="String">
+		delete from tblTripInfo where seq = #{seq}
+	</delete>
+	
+	
+	<!-- 조회수 증가시키기 -->
+	<update id="updateReadcnt" parameterType="String">
+		update tblTripInfo set readcnt = readcnt + 1 where seq = #{seq}
+	</update>
+	
+	
+
+</mapper>

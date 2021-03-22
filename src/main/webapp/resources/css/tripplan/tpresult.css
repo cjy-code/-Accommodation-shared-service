@@ -1,0 +1,216 @@
+#tpresult {
+    margin-top: 80px;
+    text-align: center;
+}
+
+#tpresult .bodyhead {
+    font-size: 1.3em;
+    text-align: left;
+    padding: 2px 0px;
+    padding-bottom: 5px;
+}
+
+#tpresult .bodyhead .userinfo {
+    width: 20%;
+    text-align: left;
+    padding-left: 15px;
+    float: left;
+}
+
+.bodyhead .userinfo .user {
+    font-size: 0.8em;
+}
+
+.bodyhead .userinfo .title {
+    font-weight: bold;
+}
+
+#tpresult .bodyhead .centerinfo {
+    display: block;
+    float: left;
+    text-align: center;
+    margin: 6px auto;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+#tpresult .bodyhead .dsc {
+    float: right;
+    outline: none;
+}
+
+#tpresult .bodyhead .dsc:hover, #tpresult .bodyhead .dsc:focus {
+	outline: 0 !important;
+}
+
+#tpresult .bodyhead .city, #tpresult .bodyhead .day {
+    font-size: 1.1em;
+    /* color: white; */
+}
+
+#tpresult .bodyhead .day {
+    color: #f05e61ff;
+}
+
+/* 전체 틀 */
+#daysection, #bodysection, #mapsection {
+    border: 1px solid #DDD;
+    min-height: 800px;
+    margin-left: -5px;
+    float: left;
+    margin: 0px 3px;
+}
+
+#daysection {
+    width: 85px;
+    position: relative;
+    z-index: 10;
+    background-color: white;
+}
+
+#bodysection {
+    width: 702px;
+    position: relative;
+    z-index: 10;
+    background-color: white;
+}
+
+#mapsection {
+    width: 98.5%;
+    position: absolute;
+    z-index: 1;
+    /* left: 0; */
+	padding-left : 790px;
+}
+
+#map {
+    height: 100%;
+    min-height: 800px;
+}
+
+
+#tpresult::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+/*    2. daysection     */
+#daysection .btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    box-shadow: 0px 10px 10px -10px;
+    margin: 5px 0px;
+    background-color: white;
+    border: 1px solid #EEE;
+}
+
+#daysection .btn:hover
+, #daysection .btn:focus {
+    background-color: #666;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    box-shadow: 0px 10px 10px -10px;
+}
+
+
+
+/*    3.bodysection    */
+#bodysection {
+    text-align: left;
+    overflow: auto;
+    white-space:nowrap;
+}
+
+
+/* planarea */
+/* 일정헤드 */
+.planarea .day_plan_box {
+    display: inline-block;
+    width: 230px;
+}
+
+
+.day_plan_box .date {
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.day_plan_box .date span {
+    font-weight: bold;
+    color: #222;
+}
+
+.day_plan_box .summary {
+    text-align: center;
+    padding-bottom: 3px;
+}
+
+.day_plan_box .summary span {
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+
+/* 일정리스트 */
+.planlist .plan {
+    margin: 10px 5px;
+    box-shadow: 0px 10px 10px -8px;
+    border: 1px solid #DDD;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.planlist .plan:hover {
+    background-color: #EEE;
+}
+
+
+.planlist .plan .crop {
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    float: left;
+    border-bottom-left-radius: 10px;
+}
+
+.planlist .plan img {
+    width: 75px;
+}
+
+.planlist .plan .rank {
+    height: 20px;
+    background-color: #EEE;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 2px;
+    font-size: 0.8em;
+}
+
+.planlist .plan .txtbox {
+    height: 74px;
+    padding-left: 80px;
+}
+
+
+.plan .txtbox .category {
+    color: #AAA;
+    font-size: 0.8em;
+    padding-top: 7px;
+}
+
+.plan .txtbox .name {
+    font-weight: bold;
+}
+
+.plan .txtbox .dsc {
+    font-size: 0.8em;
+}
+
+
+/* 3.mapsection */

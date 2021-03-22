@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="free">
+
+	<select id="list" parameterType="map" resultType="com.test.bnna.member.board.free.FreeDTO">
+		<choose>
+			<when test="keyword != null and !keyword.equals('')">
+			select 
+			    * 
+		    from(
+		        select
+		            rownum  rnum,
+		            mb.id as id,
+		            mb.name as name,
+		            fr.*,            
+		            (select count(*) from tblFree) as cnt
+		        from tblmember mb
+		            INNER JOIN tblfree fr
+		            on mb.seq = fr.seqmember)
+		                where ${searchType} like '%'||#{keyword}||'%'
+		                and rnum between #{begin} and #{end}
+		                    order by rnum desc
+			</when>
+			<otherwise>
+	        select * from(
+				select
+				    rownum  rnum,
+				    mb.id as id,
+				    mb.name as name,
+				    fr.*,
+				(select count(*)
+				from tblFree) as cnt
+				from tblmember mb
+				    INNER JOIN tblfree fr
+				    on mb.seq = fr.seqmember)
+				       	where rnum between #{begin} and #{end}
+				            order by rnum desc
+	        </otherwise>    
+        </choose>
+	</select>
+				    
+
+
+	<select id="get" parameterType="Integer" resultType="com.test.bnna.member.board.free.FreeDTO">
+		select * from(
+				select
+				    rownum  rnum,
+				    mb.id as id,
+				    mb.name as name,
+				    fr.*,
+					(select count(*) from tblFree) as cnt
+				from tblmember mb
+				    INNER JOIN tblfree fr
+				    on mb.seq = fr.seqmember)
+				    	where seq = #{seq}		
+	</select>
+	
+	<insert id="add">
+		insert into tblFree(seq, seqMember, title, content, regdate, thread, depth) values(seqFree.nextVal, 2, #{title}, #{content}, default, 0, #{cnt}*1000+1000) 
+	</insert>
+	
+	
+	<update id="edit">
+		update tblFree set
+			title = #{title},
+			content = #{content},
+			regdate = sysdate
+				where seq = #{seq}
+	</update>
+	
+
+	<delete id="del" parameterType="Integer">
+		delete from tblFree where seq = #{seq}
+	</delete>
+	
+	
+	<select id="total" parameterType="map" resultType="Integer">
+		<choose>
+			<when test="keyword != null and !keyword.equals('')">
+				select count(*) from tblfree where ${searchType} like '%'||#{keyword}||'%'
+			</when>
+			<otherwise>
+				select count(*) from tblfree  
+			</otherwise>
+		</choose>
+	</select>
+</mapper>
