@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  * @author 김다은
  *
  */
-@Repository
+@Repository("dibsDibsDAO")
 public class DibsDAO implements IDibsDAO {
 	
 	@Autowired

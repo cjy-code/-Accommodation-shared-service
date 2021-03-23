@@ -50,9 +50,6 @@ public class FreeController {
 		HashMap<String, String> map = new HashMap<String, String>();
 		
 		//검색
-		System.out.println(searchType);
-		System.out.println(keyword);
-		
 		map.put("searchType", searchType);
 		map.put("keyword", keyword);
 		
@@ -65,7 +62,7 @@ public class FreeController {
 		paging nowpage = new paging(page, totalboard);
 		
 		//페이지바 생성
-		String pagebar = paging.getPagebar();
+		String pagebar = paging.getPagebar(map);
 		
 		//페이지 번호 가져오기
 		int nowPage = paging.getNowPage();
