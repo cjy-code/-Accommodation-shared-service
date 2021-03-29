@@ -31,9 +31,26 @@ AirBnB를 벤치마킹하여 "에어비엔나"라는 주제로 진행한 "Spring
 ![담당업무](https://user-images.githubusercontent.com/69965049/112410751-1180df00-8d5f-11eb-96ce-6f760c19ea3f.png)
 <br><br>
 
+### 6.ERD
+![#4_erd](https://user-images.githubusercontent.com/69965049/112775464-e9072680-9077-11eb-95f1-5af890f711ed.png)
+<br><br>
 
-### 6.시연[준비 중]
+### 7.시연
 --------------------------------------------------------------------
+#### #1.[게시판 쓰기]
+![게시판_쓰기](https://user-images.githubusercontent.com/69965049/112775334-8e6dca80-9077-11eb-85fb-03b422474c8f.gif)
+<br><br>
+
+#### #1-2.[게시판 수정&삭제]
+![게시판_수정_삭제](https://user-images.githubusercontent.com/69965049/112775335-8f066100-9077-11eb-8d81-be0f609d9166.gif)
+<br><br>
+
+#### #1-3.[게시판 인증]
+![게시판_인증](https://user-images.githubusercontent.com/69965049/112775333-8dd53400-9077-11eb-86fc-69946b7eefdb.gif)
+<br><br>
+
+#### #1-4.[게시판 검색]
+![게시판_검색](https://user-images.githubusercontent.com/69965049/112775330-8c0b7080-9077-11eb-8c6d-c4614c182d00.gif)
 <br><br>
 
 ### 7.후기
