@@ -46,7 +46,7 @@ AirBnB를 벤치마킹하여 "에어비엔나"라는 주제로 진행한 "Spring
 <br><br>
 
 #### #1-3.[게시판 인증]
-![게시판_인증](https://user-images.githubusercontent.com/69965049/112775333-8dd53400-9077-11eb-86fc-69946b7eefdb.gif)
+![게시판_인증](https://user-images.githubusercontent.com/69965049/112775784-de00c600-9078-11eb-9c05-f6d6e67c7a7e.gif)
 <br><br>
 
 #### #1-4.[게시판 검색]
